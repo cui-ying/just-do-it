@@ -1,0 +1,7 @@
+elaticjob:
+  zookeeper:
+    server-lists: ip:port
+    namespace: elastic-job-lite-demo
+    baseSleepTimeMilliseconds:
+    maxSleepTimeMilliseconds:
+    maxRetries:
