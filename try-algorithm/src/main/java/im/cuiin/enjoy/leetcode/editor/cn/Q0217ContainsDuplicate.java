@@ -66,4 +66,26 @@ class Solution {
 }
 //leetcode submit region end(Prohibit modification and deletion)
 
+    //--leetcode submit region begin(Prohibit modification and deletion)
+    class Solution2 {
+        public boolean containsDuplicate(int[] nums) {
+            if (nums == null || nums.length <= 1) {
+                return false;
+            } // else
+
+            Set<Integer> cache = new HashSet<>();
+            for (int num : nums) {
+                boolean exist = cache.contains(num);
+                // 如果已存在相同的元素记录，则说明重复了，直接返回 true。
+                if (exist) {
+                    return true;
+                } else {
+                    cache.add(num);
+                }
+            }
+            return false;
+        }
+    }
+//--leetcode submit region end(Prohibit modification and deletion)
+
 }
