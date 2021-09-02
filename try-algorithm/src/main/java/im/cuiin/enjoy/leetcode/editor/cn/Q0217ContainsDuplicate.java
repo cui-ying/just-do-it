@@ -88,4 +88,23 @@ class Solution {
     }
 //--leetcode submit region end(Prohibit modification and deletion)
 
+
+    //--leetcode submit region begin(Prohibit modification and deletion)
+    class Solution3 {
+        public boolean containsDuplicate(int[] nums) {
+            if (nums == null || nums.length <= 1) {
+                return false;
+            } // else
+
+            Set<Integer> cache = new HashSet<>();
+            for (int num : nums) {
+                // 若添加失败，则说明已存在相同元素，返回 true。
+                if (!cache.add(num)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+//--leetcode submit region end(Prohibit modification and deletion)
 }
