@@ -116,7 +116,7 @@ class Solution1 {
      * 递归
      */
 //--leetcode submit region begin(Prohibit modification and deletion)
-    class Solution {
+    class Solution3 {
         public int[] plusOne(int[] digits) {
             return deal(digits, digits.length -1, 1);
         }
@@ -146,5 +146,30 @@ class Solution1 {
     }
 //--leetcode submit region end(Prohibit modification and deletion)
 
+    /**
+     * 递归，优化
+     */
+//leetcode submit region begin(Prohibit modification and deletion)
+    class Solution {
+        public int[] plusOne(int[] digits) {
+            return deal(digits, digits.length -1);
+        }
+
+        private int[] deal(int[] digits, int level) {
+            if (level == -1) {
+                int[] tmp = new int[digits.length +1];
+                tmp[0] = 1;
+                return tmp;
+            }
+            if (digits[level] == 9) {
+                digits[level] = 0;
+                return deal(digits, level -1);
+            } else {
+                digits[level] ++;
+                return digits;
+            }
+        }
+    }
+//leetcode submit region end(Prohibit modification and deletion)
 
 }
