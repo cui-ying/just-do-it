@@ -92,7 +92,7 @@ class Solution1 {
      * 如果当前是9，则将当前位置为 0，并继续下一轮循环。否则，当前位加 1 后直接返回结果。
      */
 //--leetcode submit region begin(Prohibit modification and deletion)
-    class Solution {
+    class Solution2 {
         public int[] plusOne(int[] digits) {
             int carry = 1;
             for (int i = digits.length-1; i >=0 ; i--) {
@@ -107,6 +107,41 @@ class Solution1 {
             int[] tmp = new int[digits.length +1];
             tmp[0] = 1;
             return tmp;
+        }
+    }
+//--leetcode submit region end(Prohibit modification and deletion)
+
+
+    /**
+     * 递归
+     */
+//--leetcode submit region begin(Prohibit modification and deletion)
+    class Solution {
+        public int[] plusOne(int[] digits) {
+            return deal(digits, digits.length -1, 1);
+        }
+
+        private int[] deal(int[] digits, int level, int carry) {
+            if (carry == 0) {
+                return digits;
+            }
+
+            if (level == 0 && digits[level] == 9) {
+                int[] tmp = new int[digits.length +1] ;
+                tmp[0] = 1;
+                tmp[1] = 0;
+                System.arraycopy(digits, 1, tmp, 2, digits.length - 1);
+                digits = tmp;
+                return digits;
+            }
+
+            if (digits[level] == 9) {
+                digits[level] = 0;
+                return deal(digits, level - 1, 1);
+            } else {
+                digits[level] += carry;
+                return digits;
+            }
         }
     }
 //--leetcode submit region end(Prohibit modification and deletion)
