@@ -59,7 +59,7 @@ public class Q0066PlusOne {
      * for 循环
      */
 //--leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution1 {
     public int[] plusOne(int[] digits) {
         int carry = 1;
         for (int i = digits.length-1; i >=0 ; i--) {
@@ -84,5 +84,32 @@ class Solution {
     }
 }
 //--leetcode submit region end(Prohibit modification and deletion)
+
+
+    /**
+     * for 循环，优化：
+     * 从末尾开始循环；
+     * 如果当前是9，则将当前位置为 0，并继续下一轮循环。否则，当前位加 1 后直接返回结果。
+     */
+//--leetcode submit region begin(Prohibit modification and deletion)
+    class Solution {
+        public int[] plusOne(int[] digits) {
+            int carry = 1;
+            for (int i = digits.length-1; i >=0 ; i--) {
+                if (digits[i] == 9) {
+                    digits[i] = 0;
+                } else {
+                    digits[i] ++;
+                    return digits;
+                }
+            }
+
+            int[] tmp = new int[digits.length +1];
+            tmp[0] = 1;
+            return tmp;
+        }
+    }
+//--leetcode submit region end(Prohibit modification and deletion)
+
 
 }
